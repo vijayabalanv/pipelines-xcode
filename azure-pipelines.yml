@@ -7,13 +7,13 @@ pool:
   vmImage: 'macOS-10.14'
 
 steps:
-- task: Xcode@5
-  inputs:
-    scheme: ''
-    sdk: 'iphoneos'
-    configuration: 'Release'
-    xcodeVersion: '9' # Options: 8, 9, default, specifyPath
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+#- task: Xcode@5
+#  inputs:
+#    scheme: ''
+#    sdk: 'iphoneos'
+#    configuration: 'Release'
+#    xcodeVersion: '9' # Options: 8, 9, default, specifyPath
+#    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     
  - task: CopyFiles@2
   inputs:
