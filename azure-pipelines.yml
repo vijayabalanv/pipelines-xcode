@@ -12,7 +12,7 @@ steps:
     scheme: ''
     sdk: 'iphoneos'
     configuration: 'Release'
-    xcodeVersion: '8' # Options: 8, 9, default, specifyPath
+    xcodeVersion: '9' # Options: 8, 9, default, specifyPath
 
 #variables:
 #  scheme: ''
