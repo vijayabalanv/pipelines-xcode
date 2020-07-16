@@ -20,6 +20,9 @@ steps:
     contents: '**/*.ipa'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
+ inputs:
+    pathToPublish: $(build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
 
 #variables:
 #  scheme: ''
