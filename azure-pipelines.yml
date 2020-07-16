@@ -14,6 +14,12 @@ steps:
     configuration: 'Release'
     xcodeVersion: '9' # Options: 8, 9, default, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    
+ - task: CopyFiles@2
+  inputs:
+    contents: '**/*.ipa'
+    targetFolder: '$(build.artifactStagingDirectory)'
+ - task: PublishBuildArtifacts@1
 
 #variables:
 #  scheme: ''
