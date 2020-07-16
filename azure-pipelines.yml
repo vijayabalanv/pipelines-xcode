@@ -6,10 +6,26 @@
 pool:
   vmImage: 'macOS 10.14'
 
+#steps:
+#- task: XcodePackageiOS@0
+#  inputs:
+#    scheme: ''
+#    sdk: 'iphoneos'
+#    configuration: 'Release'
+#    xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
+variables:
+  scheme: ''
+  sdk: 'iphoneos'
+  configuration: 'Release'
+
 steps:
-- task: XcodePackageiOS@0
+- task: Xcode@5
   inputs:
-    scheme: ''
-    sdk: 'iphoneos'
-    configuration: 'Release'
-    xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
+    sdk: '$(sdk)'
+    scheme: '$(scheme)'
+    configuration: '$(configuration)'
+    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    packageApp: false
+
+
