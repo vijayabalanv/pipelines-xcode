@@ -11,7 +11,7 @@ steps:
   inputs:
     scheme: ''
     sdk: 'iphoneos'
-    configuration: 'Release'
+    #configuration: 'Release'
     xcodeVersion: '9' # Options: 8, 9, default, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     packageApp: false
