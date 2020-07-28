@@ -15,17 +15,20 @@ steps:
     xcodeVersion: '9' # Options: 8, 9, default, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     packageApp: false
+#- task: CopyFiles@2
+#  inputs:
+#    contents: '**/*.ipa'
+#    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    
+#- task: ArchiveFiles@2
+#  inputs:
+#    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)' 
+#    includeRootFolder: true 
+#    archiveType: 'zip' # Options: zip, 7z, tar, wim
 - task: CopyFiles@2
   inputs:
-    contents: '**/*.ipa'
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
-    
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)' 
-    includeRootFolder: true 
-    archiveType: 'zip' # Options: zip, 7z, tar, wim
-    
+    sourceFolder: $(Build.SourcesDirectory)
+    targetFolder: $(Build.ArtifactStagingDirectory)   
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)' 
